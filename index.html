@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אקדמיית האחוואנים - שיעור מטורלל: רכיבי רשת תקשורת</title>
+<title>אקדמיית האחוואנים - רכיבי רשת תקשורת</title>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,12 +72,105 @@ body {
 
 .mono { font-family: 'JetBrains Mono', monospace; }
 
+/* ============ TOP STRIPE ============ */
+.top-stripe {
+  background: linear-gradient(90deg, #991b1b, #dc2626, #b91c1c);
+  color: #ffffff;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 3px 12px rgba(185, 28, 28, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 100;
+}
+
+.stripe-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stripe-badge {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+.stripe-badge.exam-badge {
+  background: rgba(251, 191, 36, 0.25);
+  border-color: rgba(251, 191, 36, 0.6);
+  color: #fff;
+}
+
+.pulse-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3);
+  animation: pulse 1.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* ============ סטרייפ העצמה נע ============ */
+.empower-stripe {
+  background: #0f172a;
+  color: #38bdf8;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--cyan);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.empower-track {
+  display: inline-block;
+  padding-right: 100%;
+  animation: marquee 28s linear infinite;
+}
+
+.empower-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 40px;
+}
+
+.empower-item span.highlight {
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.15);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(100%, 0, 0); }
+}
+
 /* ============ HEADER ============ */
 header {
   position: relative;
   background: linear-gradient(160deg, #fbf3e2 0%, #f7ecd6 55%, #f9efdb 100%);
   color: #b91c1c;
-  padding: 34px 20px 46px;
+  padding: 28px 20px 42px;
   text-align: center;
   overflow: hidden;
   border-bottom: 1px solid rgba(185, 28, 28, 0.22);
@@ -104,7 +197,7 @@ header::before {
   flex-wrap: wrap-reverse;
 }
 
-.hero-image flex-shrink: 0;
+.hero-image { flex-shrink: 0; }
 
 .hero-image img {
   width: 168px;
@@ -128,7 +221,7 @@ header::before {
   justify-content: space-between;
   gap: 14px;
   max-width: 1300px;
-  margin: 0 auto 30px;
+  margin: 0 auto 24px;
   flex-wrap: wrap;
 }
 
@@ -172,7 +265,7 @@ header::before {
   font-size: 12.5px;
   letter-spacing: 0.4px;
   color: #b45309;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   flex-wrap: wrap;
 }
 
@@ -187,37 +280,35 @@ header::before {
 
 .statusbar .sep { opacity: 0.4; }
 
-.header-badge {
+/* הכותרת המעודכנת לפי בקשה */
+h1.main-title {
   position: relative;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
+  margin: 6px 0 10px;
+  font-family: 'Rubik', 'Assistant', sans-serif;
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.8px;
   color: #b91c1c;
-  font-weight: 800;
-  padding: 7px 20px;
-  border-radius: 30px;
-  font-size: 14px;
-  display: inline-block;
-  margin-bottom: 16px;
-  border: 1px solid rgba(185, 28, 28, 0.35);
-  letter-spacing: 0.4px;
+  line-height: 1.1;
 }
 
-h1 {
-  position: relative;
-  margin: 8px 0 6px;
-  font-family: 'Rubik', 'Assistant', sans-serif;
-  font-size: 42px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
+.small-tag {
+  background: rgba(185, 28, 28, 0.1);
   color: #b91c1c;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(185, 28, 28, 0.25);
+  display: inline-block;
 }
 
 header p.subtitle {
   position: relative;
-  margin: 4px 0 26px;
+  margin: 8px 0 22px;
   color: #c2410c;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .protocol-row {
@@ -456,10 +547,174 @@ header p.subtitle {
   color: var(--text);
 }
 
+/* ============ מודול המבדקים (QUIZ SECTION) ============ */
+.quiz-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.quiz-btn {
+  flex: 1;
+  min-width: 200px;
+  padding: 16px 20px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.quiz-btn.easy {
+  background: var(--green-soft);
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.quiz-btn.medium {
+  background: var(--amber-soft);
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.quiz-btn.hard {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.quiz-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.quiz-btn.active-quiz {
+  color: #fff !important;
+}
+
+.quiz-btn.easy.active-quiz { background: var(--green); }
+.quiz-btn.medium.active-quiz { background: var(--amber); }
+.quiz-btn.hard.active-quiz { background: #dc2626; }
+
+.quiz-container {
+  background: var(--bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 24px;
+  display: none;
+}
+
+.quiz-container.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.question-card {
+  background: var(--card);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.question-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  text-align: right;
+  padding: 12px 16px;
+  font-family: 'Assistant', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+  background: var(--cyan-soft);
+  border-color: var(--cyan);
+}
+
+.option-btn.selected {
+  background: var(--cyan);
+  color: #ffffff;
+  border-color: var(--cyan);
+}
+
+.option-btn.correct {
+  background: var(--green) !important;
+  color: #ffffff !important;
+  border-color: var(--green) !important;
+}
+
+.option-btn.incorrect {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border-color: #dc2626 !important;
+}
+
+.submit-quiz-btn {
+  background: linear-gradient(120deg, #047857, #059669);
+  color: #ffffff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+  box-shadow: 0 6px 18px rgba(4, 120, 87, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.submit-quiz-btn:hover { transform: scale(1.03); }
+
+.score-box {
+  text-align: center;
+  background: var(--card);
+  border: 2px solid var(--cyan);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 20px;
+  display: none;
+}
+
+.score-box h3 {
+  margin: 0 0 10px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  color: var(--cyan);
+}
+
 /* ============ כפתור מצב תצוגה ============ */
 .darkBtn {
   position: fixed;
-  top: 22px;
+  top: 90px;
   left: 22px;
   width: 46px;
   height: 46px;
@@ -480,12 +735,12 @@ header p.subtitle {
 
 .darkBtn:hover { transform: scale(1.1); }
 
-/* ============ עוזר הפרויקט הצף (מוקטן ב-40%) ============ */
+/* ============ עוזר הפרויקט הצף ============ */
 .bot-widget {
     position: fixed;
     bottom: 13px;
     left: 13px;
-    width: 178px; /* הוקטן מ-296px */
+    width: 178px;
     max-width: calc(100vw - 26px);
     background: var(--card);
     color: var(--text);
@@ -498,10 +753,9 @@ header p.subtitle {
     transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
 }
 
-/* מצב מכווץ - בועה קטנה שלא חוסמת תוכן */
 .bot-widget.collapsed {
-    width: 100px; /* הוקטן מ-100px */
-    height: 100px; /* הוקטן מ-100px */
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     animation: none;
     cursor: pointer;
@@ -563,12 +817,10 @@ header p.subtitle {
     flex-shrink: 0;
 }
 
-.bot-body {
-    padding: 11px;
-}
+.bot-body { padding: 11px; }
 
 .bot-avatar {
-    width: 50px; /* הוקטן מ-84px */
+    width: 50px;
     height: 50px;
     border-radius: 50%;
     display: block;
@@ -655,14 +907,15 @@ footer {
   50% { opacity: 0.4; }
 }
 
-/* ============ MEDIA QUERIES (התאמה מלאה לנייד!) ============ */
+/* ============ MEDIA QUERIES ============ */
 @media (max-width: 900px) {
   .component-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
-  h1 { font-size: 26px; }
-  .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 16px; }
+  h1.main-title { font-size: 32px; }
+  .top-stripe { justify-content: center; text-align: center; padding: 8px 12px; }
+  .darkBtn { top: 80px; left: 12px; width: 40px; height: 40px; font-size: 16px; }
   .panel { padding: 18px 12px; }
   .hero-image img { width: 100px; height: 100px; }
   .tab-btn { width: 100%; justify-content: center; }
@@ -680,18 +933,39 @@ footer {
 
 <body>
 
+<!-- 🔴 הסטרייפ העליון: התראות, תאריך עדכון ומועד הגשה -->
+<div class="top-stripe">
+  <div class="stripe-group">
+    <span class="stripe-badge"><span class="pulse-green"></span> מערכת אקדמיה פעילה</span>
+    <span>📅 <b>תאריך עדכון:</b> <span id="current-date"></span></span>
+  </div>
+  <div class="stripe-group">
+    <span class="stripe-badge exam-badge">📝 <b>מועד הגשה:</b> 27 ביוני 2026</span>
+  </div>
+</div>
+
+<!-- ⚡ סטרייפ העצמה מתעדכן ונע -->
+<div class="empower-stripe">
+  <div class="empower-track">
+    <div class="empower-item">🔥 <span class="highlight">אלופי הרשתות:</span> כל Packet שאתם מנתחים מקרב אתכם למקצוענות!</div>
+    <div class="empower-item">🚀 <span class="highlight">טיפ זהב:</span> הבנת את מודל OSI? הבנת איך כל האינטרנט עובד!</div>
+    <div class="empower-item">💪 <span class="highlight">האחוואנים לא מוותרים:</span> תרגול אחד ביום והסוויטש אצלכם בידיים!</div>
+    <div class="empower-item">💡 <span class="highlight">זכרו:</span> טעויות ב-Packet Tracer הן המדרגות להצלחה שלכם!</div>
+  </div>
+</div>
+
 <button class="darkBtn" onclick="toggleDark()" title="החלף מצב תצוגה" id="darkToggleBtn">🌙</button>
 
 <header>
   <nav class="navbar">
-    <a class="nav-btn outline" href="#tabs-section">⚡ עברו ישר למעבדת הרכיבים</a>
+    <a class="nav-btn outline" href="#tabs-section">⚡ מעבדת רכיבים</a>
+    <a class="nav-btn outline" href="#quiz-section">🧪 מבדקי ידע</a>
     <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">🖥️ אקדמיית האחוואנים</a>
   </nav>
 
   <div class="hero-row">
     <div class="hero-image">
-      <!-- האוואטר מהקישור שלך עם גודל מעודכן ועדין -->
-      <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #b91c1c; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2); background: #fff;">
+      <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר">
     </div>
     <div class="hero-text">
       <div class="statusbar">
@@ -703,13 +977,13 @@ footer {
         <span>192.168.1.0/24</span>
       </div>
       
-      <!-- הכותרת המוקטנת בסגנון התמונה -->
-      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 8px;">
-        <span style="background: rgba(185, 28, 28, 0.1); color: #b91c1c; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px;">🔥 שיעור מטורלל: רכיבי רשת</span>
-        <h1 style="font-size: 22px; font-weight: 800; color: #b91c1c; margin: 0; letter-spacing: -0.3px;">איך הכל מתחבר אחי?</h1>
+      <!-- הכותרת המעודכנת לפי בקשתך -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 8px;">
+        <span class="small-tag">איך הכל מתחבר אחי?</span>
+        <h1 class="main-title">רכיבי רשת תקשורת</h1>
       </div>
 
-      <p class="subtitle" style="font-size: 14px; margin: 4px 0 16px;">מסע עומק בטאבים: מהביט הבודד בכבל ועד לניתוב החכם בראוטר!</p>
+      <p class="subtitle">מסע עומק בטאבים: מהביט הבודד בכבל ועד לניתוב החכם בראוטר!</p>
       <div class="protocol-row">
         <span class="protocol-chip">OSI LAYERS</span>
         <span class="protocol-chip">PDU UNITS</span>
@@ -723,6 +997,7 @@ footer {
 
 <div class="container" id="tabs-section">
 
+  <!-- פאנל מעבדת הרכיבים -->
   <div class="panel">
     <div class="panel-head">
       <h2>🔌 מעבדת רכיבי הרשת - בחרו טאב ללמידה</h2>
@@ -756,7 +1031,7 @@ footer {
           
           <div class="section-box">
             <h4>⚡ אופן פעולה</h4>
-            <p>מחשב הוא רכיב הקצה (End-Device) שבו הכל מתחיל ונגמר! הוא מייצר את המידע בשכבת האפליקציה (למשל הודעת וואטסאפ, בקשת HTTP בדפדפן או סטרימינג ביוטיוב), עובר את כל תהליך ההכמסה (Encapsulation) דרך סטאק ה-TCP/IP, ושולח אותה החוצה. כשהוא מקבל חבילה - הוא מפרק אותה מהביטים ועד לטקסט/וידאו שאתם רואים במסך.</p>
+            <p>מחשב הוא רכיב הקצה (End-Device) שבו הכל מתחיל ונגמר! הוא מייצר את המידע בשכבת האפליקציה, עובר את כל תהליך ההכמסה (Encapsulation) דרך סטאק ה-TCP/IP, ושולח אותה החוצה. כשהוא מקבל חבילה - הוא מפרק אותה מהביטים ועד לטקסט/וידאו שאתם רואים במסך.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -908,7 +1183,7 @@ footer {
           
           <div class="section-box">
             <h4>⚡ אופן פעולה</h4>
-            <p>הראוטר הוא מנהל התנועה העולמי! התפקיד שלו הוא לקשר בין רשתות שונות נפרדות (למשל הרשת הביתית שלכם לרשת האינטרנט העולמית). הראוטר בוחן את כתובת ה-IP של היעד בכל חבילה, בודק בטבלת הניתוב שלו (Routing Table) מה המניע/הנתיב הכי טוב להגיע לשם, ומעביר אותה הלאה.</p>
+            <p>הראוטר הוא מנהל התנועה העולמי! התפקיד שלו הוא לקשר בין רשתות שונות נפרדות (למשל הרשת הביתית שלכם לרשת האינטרנט העולמית). הראוטר בוחן את כתובת ה-IP של היעד בכל חבילה, בודק בטבלת הניתוב שלו (Routing Table) מה הנתיב הכי טוב להגיע לשם, ומעביר אותה הלאה.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -946,7 +1221,7 @@ footer {
           
           <div class="section-box">
             <h4>⚡ אופן פעולה</h4>
-            <p>נקודת גישה אלחוטית (AP) ממירה את האותות החשמליים שמגיעים מהסוויטש הקווי לגלי רדיו באוויר. היא משדרת את שם הרשת (SSID) ומאפשרת למכשירים ניידים להתחבר לרשת הקווית ללא כבלים. הראוטר הביתי שלכם הוא למעשה רכיב משולב: ראוטר + סוויטש + נקודת גישה אלחוטית בקופסה אחת!</p>
+            <p>נקודת גישה אלחוטית (AP) ממירה את האותות החשמליים שמגיעים מהסוויטש הקווי לגלי רדיו באוויר. היא משדרת את שם הרשת (SSID) ומאפשרת למכשירים ניידים להתחבר לרשת הקווית ללא כבלים.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -969,9 +1244,43 @@ footer {
 
   </div>
 
+  <!-- 🧪 פאנל מבדקי ידע חדש -->
+  <div class="panel" id="quiz-section">
+    <div class="panel-head">
+      <h2>🧪 מבדקי ידע ברשתות תקשורת</h2>
+      <span class="panel-tag mono">ASSESSMENT_CENTER</span>
+    </div>
+
+    <p style="margin-top:0; font-weight: 600; color: var(--text-muted);">בחרו רמת קושי, ענו על 5 השאלות וקבלו ציון מיידי!</p>
+
+    <!-- 3 לחצני הרמות -->
+    <div class="quiz-actions">
+      <button class="quiz-btn easy" id="btn-easy" onclick="startQuiz('easy')">
+        🟢 מבדק בסיסי (Basic)
+      </button>
+      <button class="quiz-btn medium" id="btn-medium" onclick="startQuiz('medium')">
+        🟡 מבדק בינוני (Intermediate)
+      </button>
+      <button class="quiz-btn hard" id="btn-hard" onclick="startQuiz('hard')">
+        🔴 מבדק מתקדם (Hard)
+      </button>
+    </div>
+
+    <!-- קונטיינר השאלות -->
+    <div class="quiz-container" id="quiz-container">
+      <div id="quiz-questions-list"></div>
+      <button class="submit-quiz-btn" onclick="calculateScore()">📊 סיימתי - חשב ציון!</button>
+      
+      <div class="score-box" id="score-box">
+        <h3 id="score-text"></h3>
+        <p id="score-desc" style="font-weight: 700; margin: 0;"></p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<!-- 🤖 צומת העוזר המקורי -->
+<!-- 🤖 צומת העוזר דן-GPT -->
 <div class="bot-widget collapsed" id="botWidget" onclick="expandBot(event)">
     <div class="bot-header" onclick="toggleBot(event)">
         <span class="dot"></span> <span>NODE: DAN-GPT // ONLINE</span>
@@ -1007,6 +1316,14 @@ footer {
 </footer>
 
 <script>
+// הגדרת תאריך עדכון דינמי להיום
+document.getElementById('current-date').textContent = new Date().toLocaleDateString('he-IL', {
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric'
+});
+
+// ניהול טאבים
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   
@@ -1040,6 +1357,233 @@ function expandBot(evt){
   if (widget.classList.contains("collapsed")) {
     widget.classList.remove("collapsed");
   }
+}
+
+/* ================= בנק שאלות למבדקים ================= */
+const quizData = {
+  easy: [
+    {
+      q: "1. באיזו שכבה במודל OSI פועל כרטיס רשת (NIC)?",
+      options: ["Layer 1 (Physical)", "Layer 2 (Data Link)", "Layer 3 (Network)", "Layer 7 (Application)"],
+      ans: 1
+    },
+    {
+      q: "2. מה תפקידו העיקרי של הראוטר (Router)?",
+      options: ["לחבר בין מכשירים באותה רשת מקומית", "להעביר אותות חשמליים בכבל", "לחבר בין רשתות נפרדות ולנתב חבילות מידע", "להגדיר כתובת MAC לכל מחשב"],
+      ans: 2
+    },
+    {
+      q: "3. מהי כתובת MAC?",
+      options: ["כתובת לוגית שמשתנה בכל התחברות", "כתובת פיזית ייחודית הצרובה על כרטיס הרשת", "שם המתחם של האתר באינטרנט", "פרוטוקול אבטחה אלחוטי"],
+      ans: 1
+    },
+    {
+      q: "4. באיזה תווך תקשורת המידע מועבר כפולסים של אור?",
+      options: ["כבל נחושת UTP CAT6", "גלי רדיו Wi-Fi", "סיב אופטי (Optical Fiber)", "כבל מוצלב (Crossover)"],
+      ans: 2
+    },
+    {
+      q: "5. איזו יחידת מידע (PDU) שייכת לשכבת הרשת (Layer 3)?",
+      options: ["Bits", "Frame", "Packet", "Segment"],
+      ans: 2
+    }
+  ],
+  medium: [
+    {
+      q: "1. מה ההבדל המרכזי בין סוויטש (Switch) לרכזת ישנה (Hub)?",
+      options: [
+        "סוויטש עובד בשכבה 1 ורכזת בשכבה 3",
+        "סוויטש מעביר מידע רק לפורט היעד לפי טבלת MAC, בעוד רכזת משדרת לכולם (Broadcast)",
+        "רכזת מאובטחת יותר מסוויטש",
+        "אין שום הבדל ביניהם"
+      ],
+      ans: 1
+    },
+    {
+      q: "2. מה מאפשר מנגנון Auto-MDIX בסוויטשים מודרניים?",
+      options: [
+        "הגדרת כתובת IP אוטומטית למחשב",
+        "זיהוי והתאמה אוטומטית של סוג הכבל (ישר או מוצלב)",
+        "הצפנה של תעבורת ה-Wi-Fi",
+        "מניעת התקפות סייבר ברשת"
+      ],
+      ans: 1
+    },
+    {
+      q: "3. מה תפקידו של פרוטוקול ARP?",
+      options: [
+        "לתרגם כתובת IP לכתובת MAC פיזית ברשת המקומית",
+        "להקצות כתובות IP באופן אוטומטי",
+        "לתרגם שמות מתחם (DNS) לכתובות IP",
+        "לנתב חבילות בין מדינות"
+      ],
+      ans: 0
+    },
+    {
+      q: "4. באיזה מנגנון גישה משתמשת רשת אלחוטית (Wi-Fi) לניהול השידורים באוויר?",
+      options: ["CSMA/CD", "CSMA/CA", "Token Ring", "FDDI"],
+      ans: 1
+    },
+    {
+      q: "5. איזה שירות אחראי על חלוקת כתובות IP אוטומטית ברשת?",
+      options: ["DNS Server", "DHCP Server", "Web Server", "FTP Server"],
+      ans: 1
+    }
+  ],
+  hard: [
+    {
+      q: "1. מה יבצע סוויטש כשהוא מקבל Frame שכתובת ה-MAC של היעד אינה קיימת בטבלת ה-MAC שלו?",
+      options: [
+        "ייצרך ויזרוק את המסגרת (Drop)",
+        "יבצע Unknown Unicast Flooding לכל הפורטים חוץ מפורט המקור",
+        "ישלוח הודעת שגיאה לראוטר",
+        "יפנה לשרת ה-DHCP לקבלת הכתובת"
+      ],
+      ans: 1
+    },
+    {
+      q: "2. מהו התפקיד העיקרי של פרוטוקול STP (Spanning Tree Protocol)?",
+      options: [
+        "להגדיר VLANs בתוך הסוויטש",
+        "למנוע לולאות ברשת הפיזית בשכבה 2 (L2 Loops)",
+        "להצפין תעבורת רשת בין סוויטשים",
+        "לנתב תעבורה בין VLANs שונים"
+      ],
+      ans: 1
+    },
+    {
+      q: "3. מהי תצורת Router-on-a-Stick?",
+      options: [
+        "חיבור 2 ראוטרים במקביל לגיבוי",
+        "שימוש בראוטר עם ממשק פיזי יחיד המחולק ל-Sub-Interfaces לניתוב בין VLANs",
+        "חיבור ראוטר אלחוטי באמצעות אנטנה בלבד",
+        "טכניקה לחלוקת עומסים בשכבה 4"
+      ],
+      ans: 1
+    },
+    {
+      q: "4. מה מייצגים 3 הבייטים הראשונים (OUI) בכתובת MAC?",
+      options: [
+        "את המספר הסידורי של כרטיס הרשת",
+        "את זיהוי יצרן החומרה (Vendor)",
+        "את כתובת ה-IP של המחשב",
+        "את מזהה ה-VLAN שאליו שייך הפורט"
+      ],
+      ans: 1
+    },
+    {
+      q: "5. מהו היתרון המרכזי של תדר 5GHz על פני 2.4GHz ברשת אלחוטית?",
+      options: [
+        "טווח קליטה ארוך יותר וחדירת קירות טובה יותר",
+        "מהירות תעבורה גבוהה יותר ופחות הפרעות מרשתות שכנות",
+        "צריכת חשמל נמוכה יותר באופן משמעותי",
+        "תמיכה במכשירים ישנים בלבד"
+      ],
+      ans: 1
+    }
+  ]
+};
+
+let currentLevel = '';
+let userAnswers = {};
+
+function startQuiz(level) {
+  currentLevel = level;
+  userAnswers = {};
+  
+  // עדכון כפתורים פעילים
+  document.querySelectorAll('.quiz-btn').forEach(btn => btn.classList.remove('active-quiz'));
+  document.getElementById(`btn-${level}`).classList.add('active-quiz');
+
+  const container = document.getElementById('quiz-container');
+  const list = document.getElementById('quiz-questions-list');
+  const scoreBox = document.getElementById('score-box');
+  
+  scoreBox.style.display = 'none';
+  container.classList.add('active');
+  list.innerHTML = '';
+
+  const questions = quizData[level];
+  questions.forEach((qObj, qIdx) => {
+    const qCard = document.createElement('div');
+    qCard.className = 'question-card';
+    
+    let optionsHTML = '';
+    qObj.options.forEach((opt, oIdx) => {
+      optionsHTML += `
+        <button class="option-btn" id="opt-${qIdx}-${oIdx}" onclick="selectOption(${qIdx}, ${oIdx})">
+          ${opt}
+        </button>
+      `;
+    });
+
+    qCard.innerHTML = `
+      <div class="question-title">${qObj.q}</div>
+      <div class="options-grid">${optionsHTML}</div>
+    `;
+    list.appendChild(qCard);
+  });
+}
+
+function selectOption(qIdx, oIdx) {
+  userAnswers[qIdx] = oIdx;
+  const questions = quizData[currentLevel];
+  
+  // ביטול בחירה קודמת בתוך השאלה
+  questions[qIdx].options.forEach((_, idx) => {
+    const btn = document.getElementById(`opt-${qIdx}-${idx}`);
+    if (btn) btn.classList.remove('selected');
+  });
+
+  // סימון הבחירה החדשה
+  document.getElementById(`opt-${qIdx}-${oIdx}`).classList.add('selected');
+}
+
+function calculateScore() {
+  const questions = quizData[currentLevel];
+  if (Object.keys(userAnswers).length < questions.length) {
+    alert('אחי, ענה על כל 5 השאלות לפני חישוב הציון! 💪');
+    return;
+  }
+
+  let correctCount = 0;
+  questions.forEach((qObj, qIdx) => {
+    const selected = userAnswers[qIdx];
+    qObj.options.forEach((_, oIdx) => {
+      const btn = document.getElementById(`opt-${qIdx}-${oIdx}`);
+      btn.disabled = true;
+      if (oIdx === qObj.ans) {
+        btn.classList.add('correct');
+      } else if (oIdx === selected) {
+        btn.classList.add('incorrect');
+      }
+    });
+
+    if (selected === qObj.ans) {
+      correctCount++;
+    }
+  });
+
+  const finalScore = (correctCount / questions.length) * 100;
+  const scoreBox = document.getElementById('score-box');
+  const scoreText = document.getElementById('score-text');
+  const scoreDesc = document.getElementById('score-desc');
+
+  scoreText.textContent = `הציון שלך: ${finalScore} / 100`;
+  
+  if (finalScore === 100) {
+    scoreDesc.textContent = '🏆 אלוף עולם! שליטה מוחלטת בחומר!';
+    scoreDesc.style.color = 'var(--green)';
+  } else if (finalScore >= 60) {
+    scoreDesc.textContent = '👍 עבודה טובה מאוד! מעבר קל, תמשיך לתרגל!';
+    scoreDesc.style.color = 'var(--amber)';
+  } else {
+    scoreDesc.textContent = '💪 לא נורא אחי, עבור שוב על הטאבים ונסה שוב!';
+    scoreDesc.style.color = '#dc2626';
+  }
+
+  scoreBox.style.display = 'block';
+  scoreBox.scrollIntoView({ behavior: 'smooth' });
 }
 </script>
 

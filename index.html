@@ -280,7 +280,6 @@ header::before {
 
 .statusbar .sep { opacity: 0.4; }
 
-/* הכותרת המעודכנת לפי בקשה */
 h1.main-title {
   position: relative;
   margin: 6px 0 10px;
@@ -603,6 +602,21 @@ header p.subtitle {
 .quiz-btn.easy.active-quiz { background: var(--green); }
 .quiz-btn.medium.active-quiz { background: var(--amber); }
 .quiz-btn.hard.active-quiz { background: #dc2626; }
+
+/* נקודות צבעוניות ללחצנים */
+.dot-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.quiz-btn.easy .dot-indicator { background-color: var(--green); }
+.quiz-btn.medium .dot-indicator { background-color: var(--amber); }
+.quiz-btn.hard .dot-indicator { background-color: #dc2626; }
+
+.quiz-btn.active-quiz .dot-indicator {
+  background-color: #ffffff !important;
+}
 
 .quiz-container {
   background: var(--bg);
@@ -933,7 +947,7 @@ footer {
 
 <body>
 
-<!-- 🔴 הסטרייפ העליון: התראות, תאריך עדכון ומועד הגשה -->
+<!-- 🔴 הסטרייפ העליון -->
 <div class="top-stripe">
   <div class="stripe-group">
     <span class="stripe-badge"><span class="pulse-green"></span> מערכת אקדמיה פעילה</span>
@@ -944,7 +958,7 @@ footer {
   </div>
 </div>
 
-<!-- ⚡ סטרייפ העצמה מתעדכן ונע -->
+<!-- ⚡ סטרייפ העצמה -->
 <div class="empower-stripe">
   <div class="empower-track">
     <div class="empower-item">🔥 <span class="highlight">אלופי הרשתות:</span> כל Packet שאתם מנתחים מקרב אתכם למקצוענות!</div>
@@ -958,9 +972,9 @@ footer {
 
 <header>
   <nav class="navbar">
-    <a class="nav-btn outline" href="#tabs-section">⚡ מעבדת רכיבים</a>
-    <a class="nav-btn outline" href="#quiz-section">🧪 מבדקי ידע</a>
-    <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">🖥️ אקדמיית האחוואנים</a>
+    <a class="nav-btn outline" href="#tabs-section">מעבדת רכיבים</a>
+    <a class="nav-btn outline" href="#quiz-section">מבדקי ידע</a>
+    <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">אקדמיית האחוואנים</a>
   </nav>
 
   <div class="hero-row">
@@ -977,7 +991,6 @@ footer {
         <span>192.168.1.0/24</span>
       </div>
       
-      <!-- הכותרת המעודכנת לפי בקשתך -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 8px;">
         <span class="small-tag">איך הכל מתחבר אחי?</span>
         <h1 class="main-title">רכיבי רשת תקשורת</h1>
@@ -1000,18 +1013,18 @@ footer {
   <!-- פאנל מעבדת הרכיבים -->
   <div class="panel">
     <div class="panel-head">
-      <h2>🔌 מעבדת רכיבי הרשת - בחרו טאב ללמידה</h2>
+      <h2>מעבדת רכיבי הרשת - בחרו טאב ללמידה</h2>
       <span class="panel-tag mono">LAB_MODULE_V2.0</span>
     </div>
 
-    <!-- סרגל הטאבים -->
+    <!-- סרגל הטאבים ללא אייקונים -->
     <div class="tabs-nav">
-      <button class="tab-btn active" onclick="openTab(event, 'pc')">💻 מחשב (PC / Host)</button>
-      <button class="tab-btn" onclick="openTab(event, 'nic')">💳 כרטיס רשת (NIC)</button>
-      <button class="tab-btn" onclick="openTab(event, 'cables')">🔌 כבלים ותשתיות</button>
-      <button class="tab-btn" onclick="openTab(event, 'switch')">🔀 סוויטש (Switch)</button>
-      <button class="tab-btn" onclick="openTab(event, 'router')">🌐 ראוטר (Router)</button>
-      <button class="tab-btn" onclick="openTab(event, 'wireless')">📡 רכיבים אלחוטיים</button>
+      <button class="tab-btn active" onclick="openTab(event, 'pc')">מחשב (PC / Host)</button>
+      <button class="tab-btn" onclick="openTab(event, 'nic')">כרטיס רשת (NIC)</button>
+      <button class="tab-btn" onclick="openTab(event, 'cables')">כבלים ותשתיות</button>
+      <button class="tab-btn" onclick="openTab(event, 'switch')">סוויטש (Switch)</button>
+      <button class="tab-btn" onclick="openTab(event, 'router')">ראוטר (Router)</button>
+      <button class="tab-btn" onclick="openTab(event, 'wireless')">רכיבים אלחוטיים</button>
     </div>
 
     <!-- TAB 1: מחשב -->
@@ -1027,15 +1040,15 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">💻 מחשב קצה (Host / PC / Server)</h3>
+          <h3 class="comp-title">מחשב קצה (Host / PC / Server)</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
+            <h4>אופן פעולה</h4>
             <p>מחשב הוא רכיב הקצה (End-Device) שבו הכל מתחיל ונגמר! הוא מייצר את המידע בשכבת האפליקציה, עובר את כל תהליך ההכמסה (Encapsulation) דרך סטאק ה-TCP/IP, ושולח אותה החוצה. כשהוא מקבל חבילה - הוא מפרק אותה מהביטים ועד לטקסט/וידאו שאתם רואים במסך.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ נתונים טכניים מרכזיים</h4>
+            <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
               <div class="spec-card"><span>כתובת לוגית</span><b>IP Address (IPv4/IPv6)</b></div>
               <div class="spec-card"><span>מערכת הפעלה</span><b>Windows / Linux / macOS</b></div>
@@ -1045,7 +1058,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
             <p>המחשב מריץ טבלת ARP פנימית! תרשמו ב-CMD שלכם <span class="mono">arp -a</span> ותראו איך המחשב זוכר איזה כתובת IP שייכת לאיזה כתובת MAC פיזית ברשת המקומית שלכם!</p>
           </div>
         </div>
@@ -1065,15 +1078,15 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">💳 כרטיס רשת (Network Interface Card - NIC)</h3>
+          <h3 class="comp-title">כרטיס רשת (Network Interface Card - NIC)</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
+            <h4>אופן פעולה</h4>
             <p>הכרטיס רשת הוא המתרגם והשומר בכניסה למחשב! הוא לוקח את המידע הדיגיטלי מהמעבד והזיכרון, מקודד אותו לאותות חשמליים, אופטיים או גלי רדיו, ושולח אותו לתווך התקשורת. בנוסף, על כרטיס הרשת צרובה כתובת ה-MAC הפיזית הבלעדית שלו שלא משתנית לעולם!</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ נתונים טכניים מרכזיים</h4>
+            <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
               <div class="spec-card"><span>מבנה MAC</span><b>Hexadecimal (6 Bytes)</b></div>
               <div class="spec-card"><span>קצב תעבורה</span><b>1Gbps / 2.5Gbps / 10Gbps</b></div>
@@ -1083,7 +1096,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
             <p>3 הבייטים הראשונים בכתובת ה-MAC נקראים OUI! הם מזהים מאיזה יצרן הכרטיס (Intel, Cisco, Realtek). אפשר לדעת איזה חברה יצרה את הרכיב רק לפי ה-MAC!</p>
           </div>
         </div>
@@ -1103,15 +1116,15 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🔌 כבלי תקשורת ותשתיות פיזיות</h3>
+          <h3 class="comp-title">כבלי תקשורת ותשתיות פיזיות</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
+            <h4>אופן פעולה</h4>
             <p>העורקים של האינטרנט! התפקיד שלהם הוא להעביר ביטים (0 ו-1) בצורה המהירה והאמינה ביותר. בכבלי נחושת המידע עובר כפולסים חשמליים, ובסיבים אופטיים המידע טס כגלי אור מטורפים בתוך זכוכית דקה הדוקה!</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ נתונים טכניים מרכזיים</h4>
+            <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
               <div class="spec-card"><span>CAT 6 / CAT 6A</span><b>עד 10Gbps (מרחק 55m/100m)</b></div>
               <div class="spec-card"><span>סיב אופטי Single-Mode</span><b>למרחקים ענקיים (עשרות ק"מ)</b></div>
@@ -1121,7 +1134,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
             <p>זוכרים כבל מוצלב (Crossover) וכבל ישר (Straight-Through)? היום לרוב הסוויצ'ים יש מנגנון מטורף שנקרא Auto-MDIX שמשנה את הפורט אוטומטית גם אם טעיתם בסוג הכבל!</p>
           </div>
         </div>
@@ -1141,15 +1154,15 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🔀 מתג רשת (Switch - L2)</h3>
+          <h3 class="comp-title">מתג רשת (Switch - L2)</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
+            <h4>אופן פעולה</h4>
             <p>הסוויטש הוא המרכזיה החכמה של הרשת המקומית (LAN). כשמגיעה אליו מסגרת (Frame), הוא מסתכל על כתובת ה-MAC של היעד, בודק בטבלת ה-MAC הפיזית שלו באיזה פורט היעד נמצא, ושולח את המידע **רק לפורט הזה**! בשונה מהרכזת הישנה (Hub) שהיתה צועקת לכולם (Broadcast).</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ נתונים טכניים מרכזיים</h4>
+            <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
               <div class="spec-card"><span>חלוקת רשתות</span><b>VLANs (802.1Q)</b></div>
               <div class="spec-card"><span>חיבור בין סוויצ'ים</span><b>Trunk Port (802.1Q Tagging)</b></div>
@@ -1159,7 +1172,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
             <p>אם הסוויטש לא מכיר את כתובת ה-MAC של היעד, הוא יבצע היצפה (Unknown Unicast Flooding) וישלח את המסגרת לכל הפורטים חוץ מהפורט שנכנסה ממנו, עד שהוא ילמד אותה!</p>
           </div>
         </div>
@@ -1179,15 +1192,15 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🌐 נתב (Router - L3)</h3>
+          <h3 class="comp-title">נתב (Router - L3)</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
+            <h4>אופן פעולה</h4>
             <p>הראוטר הוא מנהל התנועה העולמי! התפקיד שלו הוא לקשר בין רשתות שונות נפרדות (למשל הרשת הביתית שלכם לרשת האינטרנט העולמית). הראוטר בוחן את כתובת ה-IP של היעד בכל חבילה, בודק בטבלת הניתוב שלו (Routing Table) מה הנתיב הכי טוב להגיע לשם, ומעביר אותה הלאה.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ נתונים טכניים מרכזיים</h4>
+            <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
               <div class="spec-card"><span>סוגי ניתוב</span><b>Static Routing / Dynamic (OSPF, RIP)</b></div>
               <div class="spec-card"><span>תרגום כתובות</span><b>NAT / PAT (Public vs Private IP)</b></div>
@@ -1197,7 +1210,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
             <p>ראוטר עוצר הודעות Broadcast! שום הודעת הצפה מ-VLAN אחד לא תעבור דרך הראוטר ל-VLAN אחר אלא אם הגדרתם ניתוב במפורש. הוא השומר של גבולות הרשת!</p>
           </div>
         </div>
@@ -1217,15 +1230,15 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">📡 רכיבי גישה אלחוטיים (Access Point / Wireless Router)</h3>
+          <h3 class="comp-title">רכיבי גישה אלחוטיים (Access Point / Wireless Router)</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
+            <h4>אופן פעולה</h4>
             <p>נקודת גישה אלחוטית (AP) ממירה את האותות החשמליים שמגיעים מהסוויטש הקווי לגלי רדיו באוויר. היא משדרת את שם הרשת (SSID) ומאפשרת למכשירים ניידים להתחבר לרשת הקווית ללא כבלים.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ נתונים טכניים מרכזיים</h4>
+            <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
               <div class="spec-card"><span>אבטחה אלחוטית</span><b>WPA2-Personal / WPA3-Enterprise</b></div>
               <div class="spec-card"><span>תדר 2.4GHz</span><b>טווח ארוך, חודר קירות, איטי יותר</b></div>
@@ -1235,7 +1248,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
             <p>ברשת קווית משתמשים ב-CSMA/CD (זיהוי התנגשויות), אבל באוויר אי אפשר לזהות התנגשות תוך כדי שידור, ולכן באלחוט משתמשים ב-CSMA/CA (מניעת התנגשויות מראש)!</p>
           </div>
         </div>
@@ -1244,7 +1257,7 @@ footer {
 
   </div>
 
-  <!-- 🧪 פאנל מבדקי ידע חדש -->
+  <!-- 🧪 פאנל מבדקי ידע -->
   <div class="panel" id="quiz-section">
     <div class="panel-head">
       <h2>🧪 מבדקי ידע ברשתות תקשורת</h2>
@@ -1253,16 +1266,16 @@ footer {
 
     <p style="margin-top:0; font-weight: 600; color: var(--text-muted);">בחרו רמת קושי, ענו על 5 השאלות וקבלו ציון מיידי!</p>
 
-    <!-- 3 לחצני הרמות -->
+    <!-- 3 לחצני הרמות: ללא תרגום באנגלית, עם נקודה צבעונית בלבד -->
     <div class="quiz-actions">
       <button class="quiz-btn easy" id="btn-easy" onclick="startQuiz('easy')">
-        🟢 מבדק בסיסי (Basic)
+        <span class="dot-indicator"></span> מבדק בסיסי
       </button>
       <button class="quiz-btn medium" id="btn-medium" onclick="startQuiz('medium')">
-        🟡 מבדק בינוני (Intermediate)
+        <span class="dot-indicator"></span> מבדק בינוני
       </button>
       <button class="quiz-btn hard" id="btn-hard" onclick="startQuiz('hard')">
-        🔴 מבדק מתקדם (Hard)
+        <span class="dot-indicator"></span> מבדק קשה
       </button>
     </div>
 
@@ -1316,14 +1329,12 @@ footer {
 </footer>
 
 <script>
-// הגדרת תאריך עדכון דינמי להיום
 document.getElementById('current-date').textContent = new Date().toLocaleDateString('he-IL', {
   day: '2-digit',
   month: '2-digit',
   year: 'numeric'
 });
 
-// ניהול טאבים
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   
@@ -1400,7 +1411,7 @@ const quizData = {
       ans: 1
     },
     {
-      q: "2. מה מאפשר מנגנון Auto-MDIX בסוויטשים מודרניים?",
+      q: "2. מה מאפשר מנגנון Auto-MDIX בסוויצ'ים מודרניים?",
       options: [
         "הגדרת כתובת IP אוטומטית למחשב",
         "זיהוי והתאמה אוטומטית של סוג הכבל (ישר או מוצלב)",
@@ -1446,7 +1457,7 @@ const quizData = {
       options: [
         "להגדיר VLANs בתוך הסוויטש",
         "למנוע לולאות ברשת הפיזית בשכבה 2 (L2 Loops)",
-        "להצפין תעבורת רשת בין סוויטשים",
+        "להצפין תעבורת רשת בין סוויצ'ים",
         "לנתב תעבורה בין VLANs שונים"
       ],
       ans: 1
@@ -1491,7 +1502,6 @@ function startQuiz(level) {
   currentLevel = level;
   userAnswers = {};
   
-  // עדכון כפתורים פעילים
   document.querySelectorAll('.quiz-btn').forEach(btn => btn.classList.remove('active-quiz'));
   document.getElementById(`btn-${level}`).classList.add('active-quiz');
 
@@ -1529,13 +1539,11 @@ function selectOption(qIdx, oIdx) {
   userAnswers[qIdx] = oIdx;
   const questions = quizData[currentLevel];
   
-  // ביטול בחירה קודמת בתוך השאלה
   questions[qIdx].options.forEach((_, idx) => {
     const btn = document.getElementById(`opt-${qIdx}-${idx}`);
     if (btn) btn.classList.remove('selected');
   });
 
-  // סימון הבחירה החדשה
   document.getElementById(`opt-${qIdx}-${oIdx}`).classList.add('selected');
 }
 

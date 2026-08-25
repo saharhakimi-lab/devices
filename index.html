@@ -1025,6 +1025,7 @@ footer {
       <button class="tab-btn" onclick="openTab(event, 'switch')">סוויטש (Switch)</button>
       <button class="tab-btn" onclick="openTab(event, 'router')">ראוטר (Router)</button>
       <button class="tab-btn" onclick="openTab(event, 'wireless')">רכיבים אלחוטיים</button>
+      <button class="tab-btn" onclick="openTab(event, 'infographics')">ניתוח אינפוגרפיקות</button>
     </div>
 
     <!-- TAB 1: מחשב -->
@@ -1252,6 +1253,59 @@ footer {
             <p>ברשת קווית משתמשים ב-CSMA/CD (זיהוי התנגשויות), אבל באוויר אי אפשר לזהות התנגשות תוך כדי שידור, ולכן באלחוט משתמשים ב-CSMA/CA (מניעת התנגשויות מראש)!</p>
           </div>
         </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+    <!-- TAB 7: ניתוח אינפוגרפיקות -->
+    <div id="infographics" class="tab-content">
+      <div class="comp-details" style="gap: 24px;">
+        <h3 class="comp-title">ניתוח אינפוגרפיקות ותהליכי תקשורת</h3>
+
+        <!-- Card 1 -->
+        <div class="section-box" style="border-right-color: var(--cyan); background: var(--bg); border: 1px solid var(--panel-border); border-right: 4px solid var(--cyan); border-radius: 12px; padding: 20px;">
+          <h4 style="font-size: 18px; font-weight: 800; color: var(--cyan); margin-bottom: 12px;">אינפוגרפיקה 1: תהליך הכימוס והחילוף (OSI Encapsulation)</h4>
+          <div class="component-grid">
+            <div class="comp-media">
+              <img class="comp-img" style="height: auto; max-height: 380px; object-fit: contain; background: #fff;" src="https://drive.google.com/thumbnail?id=1j4L2sBSPPXYUaEjMyj6y66wIEoBdESW3&sz=w1000" alt="אינפוגרפיקה 1">
+            </div>
+            <div class="comp-details" style="justify-content: center;">
+              <div class="section-box" style="border-right-color: var(--cyan);">
+                <p><b>💻 מחשב שולח (OS):</b> מבצע Encapsulation, מוסיף IP Packet Header.</p>
+              </div>
+              <div class="section-box" style="border-right-color: var(--violet);">
+                <p><b>🎴 כרטיס רשת (NIC):</b> עוטף ב-L2 Frame עם MAC מקור ויעד.</p>
+              </div>
+              <div class="section-box" style="border-right-color: var(--amber);">
+                <p><b>🔀 סוויטש (Switch - L2):</b> מעביר לפי MAC בלבד - אינו משנה את המעטפת!</p>
+              </div>
+              <div class="section-box" style="border-right-color: var(--green);">
+                <p><b>🌐 ראוטר (Router - L3):</b> מקלף את ה-L2 Frame הישן בכניסה, ויוצר L2 Frame חדש ביציאה!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="section-box" style="border-right-color: var(--violet); background: var(--bg); border: 1px solid var(--panel-border); border-right: 4px solid var(--violet); border-radius: 12px; padding: 20px;">
+          <h4 style="font-size: 18px; font-weight: 800; color: var(--violet); margin-bottom: 12px;">אינפוגרפיקה 2: תפקיד כרטיס הרשת (NIC) בשכבות 1 ו-2</h4>
+          <div class="component-grid">
+            <div class="comp-media">
+              <img class="comp-img" style="height: auto; max-height: 380px; object-fit: contain; background: #fff;" src="https://drive.google.com/thumbnail?id=17iop6FSthN4wSvGWK9X2Vd9ecD9nZ8LP&sz=w1000" alt="אינפוגרפיקה 2">
+            </div>
+            <div class="comp-details" style="justify-content: center;">
+              <div class="section-box" style="border-right-color: var(--cyan);">
+                <p><b>📤 צד שולח:</b> L2 מוסיף FCS לבדיקת תקינות, L1 ממיר לאותות פיזיים (נחושת/אור/אלחוט).</p>
+              </div>
+              <div class="section-box" style="border-right-color: var(--amber);">
+                <p><b>📥 צד מקבל:</b> בודק תאימות MAC ובדיקת FCS. אם ה-Frame פגום - נפלט מיד לזבל (Discard)!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1597,3 +1651,4 @@ function calculateScore() {
 
 </body>
 </html>
+

@@ -70,6 +70,14 @@ body {
   border-radius: 4px;
 }
 
+.mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; unicode-bidi: isolate; }
+.mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; unicode-bidi: isolate; }
+.en { direction: ltr; unicode-bidi: isolate; display: inline-block; background: rgba(14, 116, 144, 0.08); border: 1px solid rgba(14, 116, 144, 0.2); padding: 1px 6px; border-radius: 6px; font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 0.9em; color: var(--cyan); }
+body.dark .en { background: rgba(34, 211, 238, 0.12); border-color: rgba(34, 211, 238, 0.3); color: var(--cyan); }
+code { direction: ltr; unicode-bidi: isolate; font-family: 'JetBrains Mono', monospace; background: var(--bg); border: 1px solid var(--panel-border); padding: 2px 7px; border-radius: 6px; color: var(--violet); font-weight: 700; }
+.tab-btn * { pointer-events: none; }
+code { direction: ltr; unicode-bidi: isolate; font-family: 'JetBrains Mono', monospace; }
+
 .mono { font-family: 'JetBrains Mono', monospace; }
 
 /* ============ TOP STRIPE ============ */
@@ -475,7 +483,7 @@ header p.subtitle {
 .meta-item:last-child { border-bottom: none; }
 
 .meta-label { font-weight: 700; color: var(--text-muted); }
-.meta-val { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: var(--cyan); }
+.meta-val { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: var(--cyan); direction: ltr; unicode-bidi: isolate; display: inline-block; }
 
 .comp-details {
   display: flex;
@@ -544,6 +552,9 @@ header p.subtitle {
   font-size: 13.5px;
   font-weight: 800;
   color: var(--text);
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
 }
 
 /* ============ מודול המבדקים (QUIZ SECTION) ============ */
@@ -984,11 +995,11 @@ footer {
     <div class="hero-text">
       <div class="statusbar">
         <span class="dot"></span>
-        <span>session: hardware_mastery</span>
+        <span class='en'>session: hardware_mastery</span>
         <span class="sep">//</span>
-        <span>academy.hardware.local</span>
+        <span class='en'>academy.hardware.local</span>
         <span class="sep">//</span>
-        <span>192.168.1.0/24</span>
+        <span class='en'>192.168.1.0/24</span>
       </div>
       
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 8px;">
@@ -1019,11 +1030,11 @@ footer {
 
     <!-- סרגל הטאבים ללא אייקונים -->
     <div class="tabs-nav">
-      <button class="tab-btn active" onclick="openTab(event, 'pc')">מחשב (PC / Host)</button>
-      <button class="tab-btn" onclick="openTab(event, 'nic')">כרטיס רשת (NIC)</button>
+      <button class="tab-btn active" onclick="openTab(event, 'pc')">מחשב <span class='en'>(PC / Host)</span></button>
+      <button class="tab-btn" onclick="openTab(event, 'nic')">כרטיס רשת <span class='en'>(NIC)</span></button>
       <button class="tab-btn" onclick="openTab(event, 'cables')">כבלים ותשתיות</button>
-      <button class="tab-btn" onclick="openTab(event, 'switch')">סוויטש (Switch)</button>
-      <button class="tab-btn" onclick="openTab(event, 'router')">ראוטר (Router)</button>
+      <button class="tab-btn" onclick="openTab(event, 'switch')">סוויטש <span class='en'>(Switch)</span></button>
+      <button class="tab-btn" onclick="openTab(event, 'router')">ראוטר <span class='en'>(Router)</span></button>
       <button class="tab-btn" onclick="openTab(event, 'wireless')">רכיבים אלחוטיים</button>
       <button class="tab-btn" onclick="openTab(event, 'infographics')">ניתוח אינפוגרפיקות</button>
     </div>
@@ -1041,11 +1052,11 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">מחשב קצה (Host / PC / Server)</h3>
+          <h3 class="comp-title">מחשב קצה <span class='en'>(Host / PC / Server)</span></h3>
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>מחשב הוא רכיב הקצה (End-Device) שבו הכל מתחיל ונגמר! הוא מייצר את המידע בשכבת האפליקציה, עובר את כל תהליך ההכמסה (Encapsulation) דרך סטאק ה-TCP/IP, ושולח אותה החוצה. כשהוא מקבל חבילה - הוא מפרק אותה מהביטים ועד לטקסט/וידאו שאתם רואים במסך.</p>
+            <p>מחשב הוא רכיב הקצה (End-Device) שבו הכל מתחיל ונגמר! הוא מייצר את המידע בשכבת האפליקציה, עובר את כל תהליך ההכמסה (Encapsulation) דרך סטאק ה-<span class='en'>TCP/IP</span>, ושולח אותה החוצה. כשהוא מקבל חבילה - הוא מפרק אותה מהביטים ועד לטקסט/וידאו שאתם רואים במסך.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -1060,7 +1071,7 @@ footer {
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>המחשב מריץ טבלת ARP פנימית! תרשמו ב-CMD שלכם <span class="mono">arp -a</span> ותראו איך המחשב זוכר איזה כתובת IP שייכת לאיזה כתובת MAC פיזית ברשת המקומית שלכם!</p>
+            <p>המחשב מריץ טבלת ARP פנימית! תרשמו ב-CMD שלכם <code class="mono" dir="ltr">arp -a</code> ותראו איך המחשב זוכר איזה כתובת <span class='en'>IP</span> שייכת לאיזה כתובת <span class='en'>MAC</span> פיזית ברשת המקומית שלכם!</p>
           </div>
         </div>
       </div>
@@ -1079,11 +1090,11 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">כרטיס רשת (Network Interface Card - NIC)</h3>
+          <h3 class="comp-title">כרטיס רשת <span class='en'>(Network Interface Card - NIC)</span></h3>
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>הכרטיס רשת הוא המתרגם והשומר בכניסה למחשב! הוא לוקח את המידע הדיגיטלי מהמעבד והזיכרון, מקודד אותו לאותות חשמליים, אופטיים או גלי רדיו, ושולח אותו לתווך התקשורת. בנוסף, על כרטיס הרשת צרובה כתובת ה-MAC הפיזית הבלעדית שלו שלא משתנית לעולם!</p>
+            <p>הכרטיס רשת הוא המתרגם והשומר בכניסה למחשב! הוא לוקח את המידע הדיגיטלי מהמעבד והזיכרון, מקודד אותו לאותות חשמליים, אופטיים או גלי רדיו, ושולח אותו לתווך התקשורת. בנוסף, על כרטיס הרשת צרובה כתובת ה-<span class='en'>MAC</span> הפיזית הבלעדית שלו שלא משתנית לעולם!</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -1098,7 +1109,7 @@ footer {
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>3 הבייטים הראשונים בכתובת ה-MAC נקראים OUI! הם מזהים מאיזה יצרן הכרטיס (Intel, Cisco, Realtek). אפשר לדעת איזה חברה יצרה את הרכיב רק לפי ה-MAC!</p>
+            <p>3 הבייטים הראשונים בכתובת ה-<span class='en'>MAC</span> נקראים <span class='en'>OUI</span>! הם מזהים מאיזה יצרן הכרטיס (Intel, Cisco, Realtek). אפשר לדעת איזה חברה יצרה את הרכיב רק לפי ה-<span class='en'>MAC</span>!</p>
           </div>
         </div>
       </div>
@@ -1121,7 +1132,7 @@ footer {
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>העורקים של האינטרנט! התפקיד שלהם הוא להעביר ביטים (0 ו-1) בצורה המהירה והאמינה ביותר. בכבלי נחושת המידע עובר כפולסים חשמליים, ובסיבים אופטיים המידע טס כגלי אור מטורפים בתוך זכוכית דקה הדוקה!</p>
+            <p>העורקים של האינטרנט! התפקיד שלהם הוא להעביר ביטים (<span class="mono">0</span> ו-<span class="mono">1</span>) בצורה המהירה והאמינה ביותר. בכבלי נחושת המידע עובר כפולסים חשמליים, ובסיבים אופטיים המידע טס כגלי אור מטורפים בתוך זכוכית דקה הדוקה!</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -1136,7 +1147,7 @@ footer {
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>זוכרים כבל מוצלב (Crossover) וכבל ישר (Straight-Through)? היום לרוב הסוויצ'ים יש מנגנון מטורף שנקרא Auto-MDIX שמשנה את הפורט אוטומטית גם אם טעיתם בסוג הכבל!</p>
+            <p>זוכרים כבל מוצלב <span class='en'>(Crossover)</span> וכבל ישר <span class='en'>(Straight-Through)</span>? היום לרוב הסוויצ'ים יש מנגנון מטורף שנקרא <span class='en'>Auto-MDIX</span> שמשנה את הפורט אוטומטית גם אם טעיתם בסוג הכבל!</p>
           </div>
         </div>
       </div>
@@ -1155,11 +1166,11 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">מתג רשת (Switch - L2)</h3>
+          <h3 class="comp-title">מתג רשת <span class='en'>(Switch - L2)</span></h3>
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>הסוויטש הוא המרכזיה החכמה של הרשת המקומית (LAN). כשמגיעה אליו מסגרת (Frame), הוא מסתכל על כתובת ה-MAC של היעד, בודק בטבלת ה-MAC הפיזית שלו באיזה פורט היעד נמצא, ושולח את המידע **רק לפורט הזה**! בשונה מהרכזת הישנה (Hub) שהיתה צועקת לכולם (Broadcast).</p>
+            <p>הסוויטש הוא המרכזיה החכמה של הרשת המקומית (LAN). כשמגיעה אליו מסגרת (Frame), הוא מסתכל על כתובת ה-<span class='en'>MAC</span> של היעד, בודק בטבלת ה-<span class='en'>MAC</span> הפיזית שלו באיזה פורט היעד נמצא, ושולח את המידע **רק לפורט הזה**! בשונה מהרכזת הישנה <span class='en'>(Hub)</span> שהיתה צועקת לכולם (Broadcast).</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -1174,7 +1185,7 @@ footer {
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>אם הסוויטש לא מכיר את כתובת ה-MAC של היעד, הוא יבצע היצפה (Unknown Unicast Flooding) וישלח את המסגרת לכל הפורטים חוץ מהפורט שנכנסה ממנו, עד שהוא ילמד אותה!</p>
+            <p>אם הסוויטש לא מכיר את כתובת ה-<span class='en'>MAC</span> של היעד, הוא יבצע היצפה <span class='en'>(Unknown Unicast Flooding)</span> וישלח את המסגרת לכל הפורטים חוץ מהפורט שנכנסה ממנו, עד שהוא ילמד אותה!</p>
           </div>
         </div>
       </div>
@@ -1193,11 +1204,11 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">נתב (Router - L3)</h3>
+          <h3 class="comp-title">נתב <span class='en'>(Router - L3)</span></h3>
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>הראוטר הוא מנהל התנועה העולמי! התפקיד שלו הוא לקשר בין רשתות שונות נפרדות (למשל הרשת הביתית שלכם לרשת האינטרנט העולמית). הראוטר בוחן את כתובת ה-IP של היעד בכל חבילה, בודק בטבלת הניתוב שלו (Routing Table) מה הנתיב הכי טוב להגיע לשם, ומעביר אותה הלאה.</p>
+            <p>הראוטר הוא מנהל התנועה העולמי! התפקיד שלו הוא לקשר בין רשתות שונות נפרדות (למשל הרשת הביתית שלכם לרשת האינטרנט העולמית). הראוטר בוחן את כתובת ה-<span class='en'>IP</span> של היעד בכל חבילה, בודק בטבלת הניתוב שלו <span class='en'>(Routing Table)</span> מה הנתיב הכי טוב להגיע לשם, ומעביר אותה הלאה.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -1212,7 +1223,7 @@ footer {
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>ראוטר עוצר הודעות Broadcast! שום הודעת הצפה מ-VLAN אחד לא תעבור דרך הראוטר ל-VLAN אחר אלא אם הגדרתם ניתוב במפורש. הוא השומר של גבולות הרשת!</p>
+            <p>ראוטר עוצר הודעות <span class='en'>Broadcast</span>! שום הודעת הצפה מ-<span class='en'>VLAN</span> אחד לא תעבור דרך הראוטר ל-<span class='en'>VLAN</span> אחר אלא אם הגדרתם ניתוב במפורש. הוא השומר של גבולות הרשת!</p>
           </div>
         </div>
       </div>
@@ -1235,7 +1246,7 @@ footer {
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>נקודת גישה אלחוטית (AP) ממירה את האותות החשמליים שמגיעים מהסוויטש הקווי לגלי רדיו באוויר. היא משדרת את שם הרשת (SSID) ומאפשרת למכשירים ניידים להתחבר לרשת הקווית ללא כבלים.</p>
+            <p>נקודת גישה אלחוטית <span class='en'>(AP)</span> ממירה את האותות החשמליים שמגיעים מהסוויטש הקווי לגלי רדיו באוויר. היא משדרת את שם הרשת <span class='en'>(SSID)</span> ומאפשרת למכשירים ניידים להתחבר לרשת הקווית ללא כבלים.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
@@ -1250,7 +1261,7 @@ footer {
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>ברשת קווית משתמשים ב-CSMA/CD (זיהוי התנגשויות), אבל באוויר אי אפשר לזהות התנגשות תוך כדי שידור, ולכן באלחוט משתמשים ב-CSMA/CA (מניעת התנגשויות מראש)!</p>
+            <p>ברשת קווית משתמשים ב-<span class='en'>CSMA/CD</span> (זיהוי התנגשויות), אבל באוויר אי אפשר לזהות התנגשות תוך כדי שידור, ולכן באלחוט משתמשים ב-<span class='en'>CSMA/CA</span> (מניעת התנגשויות מראש)!</p>
           </div>
         </div>
       </div>
@@ -1266,23 +1277,23 @@ footer {
 
         <!-- Card 1 -->
         <div class="section-box" style="border-right-color: var(--cyan); background: var(--bg); border: 1px solid var(--panel-border); border-right: 4px solid var(--cyan); border-radius: 12px; padding: 20px;">
-          <h4 style="font-size: 18px; font-weight: 800; color: var(--cyan); margin-bottom: 12px;">אינפוגרפיקה 1: תהליך הכימוס והחילוף (OSI Encapsulation)</h4>
+          <h4 style="font-size: 18px; font-weight: 800; color: var(--cyan); margin-bottom: 12px;">אינפוגרפיקה 1: תהליך הכימוס והחילוף <span class='en'>(OSI Encapsulation)</span></h4>
           <div class="component-grid">
             <div class="comp-media">
               <img class="comp-img" style="height: auto; max-height: 380px; object-fit: contain; background: #fff;" src="https://drive.google.com/thumbnail?id=1j4L2sBSPPXYUaEjMyj6y66wIEoBdESW3&sz=w1000" alt="אינפוגרפיקה 1">
             </div>
             <div class="comp-details" style="justify-content: center;">
               <div class="section-box" style="border-right-color: var(--cyan);">
-                <p><b>💻 מחשב שולח (OS):</b> מבצע Encapsulation, מוסיף IP Packet Header.</p>
+                <p><b>💻 מחשב שולח <span class='en'>(OS)</span>:</b> מבצע <span class='en'>Encapsulation</span>, מוסיף <span class='en'>IP Packet Header</span>.</p>
               </div>
               <div class="section-box" style="border-right-color: var(--violet);">
-                <p><b>🎴 כרטיס רשת (NIC):</b> עוטף ב-L2 Frame עם MAC מקור ויעד.</p>
+                <p><b>🎴 כרטיס רשת <span class='en'>(NIC)</span>:</b> עוטף ב-L2 Frame עם MAC מקור ויעד.</p>
               </div>
               <div class="section-box" style="border-right-color: var(--amber);">
                 <p><b>🔀 סוויטש (Switch - L2):</b> מעביר לפי MAC בלבד - אינו משנה את המעטפת!</p>
               </div>
               <div class="section-box" style="border-right-color: var(--green);">
-                <p><b>🌐 ראוטר (Router - L3):</b> מקלף את ה-L2 Frame הישן בכניסה, ויוצר L2 Frame חדש ביציאה!</p>
+                <p><b>🌐 ראוטר <span class='en'>(Router - L3)</span>:</b> מקלף את ה-<span class='en'>L2 Frame</span> הישן בכניסה, ויוצר <span class='en'>L2 Frame</span> חדש ביציאה!</p>
               </div>
             </div>
           </div>
@@ -1290,17 +1301,17 @@ footer {
 
         <!-- Card 2 -->
         <div class="section-box" style="border-right-color: var(--violet); background: var(--bg); border: 1px solid var(--panel-border); border-right: 4px solid var(--violet); border-radius: 12px; padding: 20px;">
-          <h4 style="font-size: 18px; font-weight: 800; color: var(--violet); margin-bottom: 12px;">אינפוגרפיקה 2: תפקיד כרטיס הרשת (NIC) בשכבות 1 ו-2</h4>
+          <h4 style="font-size: 18px; font-weight: 800; color: var(--violet); margin-bottom: 12px;">אינפוגרפיקה 2: תפקיד כרטיס הרשת <span class='en'>(NIC)</span> בשכבות 1 ו-2</h4>
           <div class="component-grid">
             <div class="comp-media">
               <img class="comp-img" style="height: auto; max-height: 380px; object-fit: contain; background: #fff;" src="https://drive.google.com/thumbnail?id=17iop6FSthN4wSvGWK9X2Vd9ecD9nZ8LP&sz=w1000" alt="אינפוגרפיקה 2">
             </div>
             <div class="comp-details" style="justify-content: center;">
               <div class="section-box" style="border-right-color: var(--cyan);">
-                <p><b>📤 צד שולח:</b> L2 מוסיף FCS לבדיקת תקינות, L1 ממיר לאותות פיזיים (נחושת/אור/אלחוט).</p>
+                <p><b>📤 צד שולח:</b> <span class='en'>L2</span> מוסיף <span class='en'>FCS</span> לבדיקת תקינות, <span class='en'>L1</span> ממיר לאותות פיזיים (נחושת/אור/אלחוט).</p>
               </div>
               <div class="section-box" style="border-right-color: var(--amber);">
-                <p><b>📥 צד מקבל:</b> בודק תאימות MAC ובדיקת FCS. אם ה-Frame פגום - נפלט מיד לזבל (Discard)!</p>
+                <p><b>📥 צד מקבל:</b> בודק תאימות <span class='en'>MAC</span> ובדיקת <span class='en'>FCS</span>. אם ה-<span class='en'>Frame</span> פגום - נפלט מיד לזבל <span class='en'>(Discard)</span>!</p>
               </div>
             </div>
           </div>
@@ -1379,7 +1390,7 @@ footer {
 </div>
 
 <footer>
-  session: רכיבי רשת תקשורת // אקדמיית האחוואנים // מודל OSI & PDU // בהצלחה 💪
+  <span class='en'>session:</span> רכיבי רשת תקשורת <span class='en'>//</span> אקדמיית האחוואנים <span class='en'>//</span> מודל <span class='en'>OSI & PDU //</span> בהצלחה 💪
 </footer>
 
 <script>
@@ -1402,8 +1413,14 @@ function openTab(evt, tabName) {
     tablinks[i].classList.remove("active");
   }
 
-  document.getElementById(tabName).classList.add("active");
-  evt.currentTarget.classList.add("active");
+  var targetTab = document.getElementById(tabName);
+  if (targetTab) {
+    targetTab.classList.add("active");
+  }
+  
+  if (evt && evt.currentTarget) {
+    evt.currentTarget.classList.add("active");
+  }
 }
 
 function toggleDark(){
@@ -1428,12 +1445,12 @@ function expandBot(evt){
 const quizData = {
   easy: [
     {
-      q: "1. באיזו שכבה במודל OSI פועל כרטיס רשת (NIC)?",
+      q: "1. באיזו שכבה במודל OSI פועל כרטיס רשת <span class='en'>(NIC)</span>?",
       options: ["Layer 1 (Physical)", "Layer 2 (Data Link)", "Layer 3 (Network)", "Layer 7 (Application)"],
       ans: 1
     },
     {
-      q: "2. מה תפקידו העיקרי של הראוטר (Router)?",
+      q: "2. מה תפקידו העיקרי של הראוטר <span class='en'>(Router)</span>?",
       options: ["לחבר בין מכשירים באותה רשת מקומית", "להעביר אותות חשמליים בכבל", "לחבר בין רשתות נפרדות ולנתב חבילות מידע", "להגדיר כתובת MAC לכל מחשב"],
       ans: 2
     },
@@ -1455,7 +1472,7 @@ const quizData = {
   ],
   medium: [
     {
-      q: "1. מה ההבדל המרכזי בין סוויטש (Switch) לרכזת ישנה (Hub)?",
+      q: "1. מה ההבדל המרכזי בין סוויטש <span class='en'>(Switch)</span> לרכזת ישנה (Hub)?",
       options: [
         "סוויטש עובד בשכבה 1 ורכזת בשכבה 3",
         "סוויטש מעביר מידע רק לפורט היעד לפי טבלת MAC, בעוד רכזת משדרת לכולם (Broadcast)",

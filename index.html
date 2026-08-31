@@ -459,6 +459,13 @@ header p.subtitle {
   border: 2px solid var(--panel-border);
   box-shadow: var(--shadow);
   background: #fff;
+  cursor: zoom-in;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.comp-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(14, 116, 144, 0.25);
 }
 
 .expand-link-btn {
@@ -926,6 +933,64 @@ header p.subtitle {
 .bot-btn:hover {
     opacity: 0.88;
     transform: scale(1.02);
+}
+
+/* ============ LIGHTBOX (תמונות מוגדלות) ============ */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 100000;
+  inset: 0;
+  background-color: rgba(9, 13, 22, 0.92);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px solid var(--cyan);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  animation: zoomIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: background 0.2s, transform 0.2s;
+  user-select: none;
+}
+
+.lightbox-close:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 footer {
@@ -1406,6 +1471,12 @@ footer {
     </div>
 </div>
 
+<!-- 🔍 LIGHTBOX MODAL (מודל תצוגה מוגדלת לתמונות) -->
+<div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+  <img id="lightbox-img" class="lightbox-content" src="" alt="תמונה מוגדלת">
+</div>
+
 <footer>
   <span class='en'>session:</span> רכיבי רשת תקשורת <span class='en'>//</span> אקדמיית האחוואנים <span class='en'>//</span> מודל <span class='en'>OSI & PDU //</span> בהצלחה 💪
 </footer>
@@ -1457,6 +1528,34 @@ function expandBot(evt){
     widget.classList.remove("collapsed");
   }
 }
+
+/* ================= LIGHTBOX (הגדלת תמונות) ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const tabImages = document.querySelectorAll('.tab-content img.comp-img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  tabImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || 'תמונה מוגדלת';
+      lightbox.classList.add('active');
+    });
+  });
+});
+
+function closeLightbox(evt) {
+  if (evt.target.id === 'lightbox' || evt.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) lightbox.classList.remove('active');
+  }
+});
 
 /* ================= בנק שאלות למבדקים ================= */
 const quizData = {

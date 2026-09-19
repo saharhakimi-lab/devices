@@ -598,6 +598,30 @@ header p.subtitle {
   gap: 8px;
 }
 
+/* כפתור/חלונית סגנונית לסימולטור */
+.sim-link-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #b45309, #d97706);
+  color: #ffffff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.sim-link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(180, 83, 9, 0.38);
+}
+
 /* ============ מודול המבדקים (QUIZ SECTION) ============ */
 .quiz-actions {
   display: flex;
@@ -1294,8 +1318,12 @@ footer {
             </div>
           </div>
 
+          <!-- עדכון פרק הטיפ בסוויטש -->
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+              <h4 style="color: var(--amber); margin: 0;">טיפ חשוב</h4>
+              <a class="sim-link-card" href="https://saharhakimi-lab.github.io/simswitch/" target="_blank" rel="noopener">🌐 לסימולטור סוויטש</a>
+            </div>
             <p>אם הסוויטש לא מכיר את כתובת ה-<span class='en'>MAC</span> של היעד, הוא יבצע היצפה <span class='en'>(Unknown Unicast Flooding)</span> וישלח את המסגרת לכל הפורטים חוץ מהפורט שנכנסה ממנו, עד שהוא ילמד אותה!</p>
           </div>
         </div>

@@ -584,6 +584,20 @@ header p.subtitle {
   display: inline-block;
 }
 
+/* עיצוב לתמונות זו לצד זו */
+.images-side-by-side {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.image-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 /* ============ מודול המבדקים (QUIZ SECTION) ============ */
 .quiz-actions {
   display: flex;
@@ -1227,6 +1241,18 @@ footer {
               <div class="spec-card"><span>סיב אופטי Single-Mode</span><b>למרחקים ענקיים (עשרות ק"מ)</b></div>
               <div class="spec-card"><span>סיב אופטי Multi-Mode</span><b>למרחקים קצרים (בתוך דאטה סנטר)</b></div>
               <div class="spec-card"><span>תקן חיווט</span><b>T568B / T568A</b></div>
+            </div>
+
+            <!-- שתי התמונות זו לצד זו עם אפשרות הגדלה -->
+            <div class="images-side-by-side">
+              <div class="image-item-wrapper">
+                <img class="comp-img" src="https://drive.google.com/thumbnail?id=1QHIFaROprBZ-X4AL7XSt-WG_h07hvhPv&sz=w1000" alt="תשתיות ותקשורת 1">
+                <a class="expand-link-btn" href="https://drive.google.com/file/d/1QHIFaROprBZ-X4AL7XSt-WG_h07hvhPv/view?usp=drivesdk" target="_blank" rel="noopener">🔍 להרחבה (תמונה 1)</a>
+              </div>
+              <div class="image-item-wrapper">
+                <img class="comp-img" src="https://drive.google.com/thumbnail?id=1mOVSiXJIkSFqNZE-WmShpUOsgMcl7URx&sz=w1000" alt="תשתיות ותקשורת 2">
+                <a class="expand-link-btn" href="https://drive.google.com/file/d/1mOVSiXJIkSFqNZE-WmShpUOsgMcl7URx/view?usp=drivesdk" target="_blank" rel="noopener">🔍 להרחבה (תמונה 2)</a>
+              </div>
             </div>
           </div>
 

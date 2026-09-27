@@ -71,7 +71,7 @@ body {
 }
 
 .mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; unicode-bidi: isolate; }
-.en { direction: ltr; unicode-bidi: isolate; display: inline-block; background: rgba(14, 116, 144, 0.08); border: 1px solid rgba(14, 116, 144, 0.2); padding: 1px 6px; border-radius: 6px; font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 0.9em; color: var(--cyan); }
+.en { direction: ltr; unicode-bidi: isolate; display: inline-block; background: rgba(14, 116, 144, 0.08); border: 1px solid rgba(14, 116, 144, 0.2); padding: 2px 7px; border-radius: 6px; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.95em; color: var(--cyan); }
 body.dark .en { background: rgba(34, 211, 238, 0.12); border-color: rgba(34, 211, 238, 0.3); color: var(--cyan); }
 code { direction: ltr; unicode-bidi: isolate; font-family: 'JetBrains Mono', monospace; background: var(--bg); border: 1px solid var(--panel-border); padding: 2px 7px; border-radius: 6px; color: var(--violet); font-weight: 700; }
 .tab-btn * { pointer-events: none; }
@@ -564,24 +564,31 @@ header p.subtitle {
   background: var(--card);
   border: 1px solid var(--panel-border);
   border-radius: 10px;
-  padding: 12px;
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .spec-card span {
   display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-family: 'Assistant', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  text-align: center;
 }
 
 .spec-card b {
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--text);
-  direction: ltr;
-  unicode-bidi: isolate;
-  display: inline-block;
+  display: block;
+  text-align: center;
+  line-height: 1.4;
 }
 
 /* עיצוב לתמונות זו לצד זו */
@@ -1179,22 +1186,34 @@ footer {
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>מחשב הוא רכיב הקצה (End-Device) שבו הכל מתחיל ונגמר! הוא מייצר את המידע בשכבת האפליקציה, עובר את כל תהליך ההכמסה (Encapsulation) דרך סטאק ה-<span class='en'>TCP/IP</span>, ושולח אותה החוצה. כשהוא מקבל חבילה - הוא מפרק אותה מהביטים ועד לטקסט/וידאו שאתם רואים במסך.</p>
+            <p>מחשב הוא רכיב הקצה <span class='en'>(End-Device)</span> שבו הכל מתחיל ונגמר! הוא מייצר את המידע בשכבת האפליקציה, עובר את כל תהליך ההכמסה <span class='en'>(Encapsulation)</span> דרך סטאק ה-<span class='en'>TCP/IP</span>, ושולח אותה החוצה. כשהוא מקבל חבילה - הוא מפרק אותה מהביטים ועד לטקסט/וידאו שאתם רואים במסך.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>כתובת לוגית</span><b>IP Address (IPv4/IPv6)</b></div>
-              <div class="spec-card"><span>מערכת הפעלה</span><b>Windows / Linux / macOS</b></div>
-              <div class="spec-card"><span>פרוטוקולי יישום</span><b>HTTP, HTTPS, FTP, DNS</b></div>
-              <div class="spec-card"><span>ניהול פורטים</span><b>Sockets (1-65535)</b></div>
+              <div class="spec-card">
+                <span>כתובת לוגית</span>
+                <b><span class='en'>IP Address (IPv4/IPv6)</span></b>
+              </div>
+              <div class="spec-card">
+                <span>מערכת הפעלה</span>
+                <b><span class='en'>Windows / Linux / macOS</span></b>
+              </div>
+              <div class="spec-card">
+                <span>פרוטוקולי יישום</span>
+                <b><span class='en'>HTTP, HTTPS, FTP, DNS</span></b>
+              </div>
+              <div class="spec-card">
+                <span>ניהול פורטים</span>
+                <b><span class='en'>Sockets (1-65535)</span></b>
+              </div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>המחשב מריץ טבלת ARP פנימית! תרשמו ב-CMD שלכם <code class="mono" dir="ltr">arp -a</code> ותראו איך המחשב זוכר איזה כתובת <span class='en'>IP</span> שייכת לאיזה כתובת <span class='en'>MAC</span> פיזית ברשת המקומית שלכם!</p>
+            <p>המחשב מריץ טבלת <span class='en'>ARP</span> פנימית! תרשמו ב-<span class='en'>CMD</span> שלכם <code class="mono" dir="ltr">arp -a</code> ותראו איך המחשב זוכר איזה כתובת <span class='en'>IP</span> שייכת לאיזה כתובת <span class='en'>MAC</span> פיזית ברשת המקומית שלכם!</p>
           </div>
         </div>
       </div>
@@ -1223,16 +1242,28 @@ footer {
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>מבנה MAC</span><b>Hexadecimal (6 Bytes)</b></div>
-              <div class="spec-card"><span>קצב תעבורה</span><b>1Gbps / 2.5Gbps / 10Gbps</b></div>
-              <div class="spec-card"><span>מחבר נפוץ</span><b>RJ-45 / SFP+</b></div>
-              <div class="spec-card"><span>מצב עבודה</span><b>Full-Duplex (שידור וקליטה)</b></div>
+              <div class="spec-card">
+                <span>מבנה MAC</span>
+                <b><span class='en'>Hexadecimal (6 Bytes)</span></b>
+              </div>
+              <div class="spec-card">
+                <span>קצב תעבורה</span>
+                <b><span class='en'>1Gbps / 2.5Gbps / 10Gbps</span></b>
+              </div>
+              <div class="spec-card">
+                <span>מחבר נפוץ</span>
+                <b><span class='en'>RJ-45 / SFP+</span></b>
+              </div>
+              <div class="spec-card">
+                <span>מצב עבודה</span>
+                <b><span class='en'>Full-Duplex</span> (שידור וקליטה)</b>
+              </div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">טיפ מטורלל של האחוואנים</h4>
-            <p>3 הבייטים הראשונים בכתובת ה-<span class='en'>MAC</span> נקראים <span class='en'>OUI</span>! הם מזהים מאיזה יצרן הכרטיס (Intel, Cisco, Realtek). אפשר לדעת איזה חברה יצרה את הרכיב רק לפי ה-<span class='en'>MAC</span>!</p>
+            <p>3 הבייטים הראשונים בכתובת ה-<span class='en'>MAC</span> נקראים <span class='en'>OUI</span>! הם מזהים מאיזה יצרן הכרטיס (<span class='en'>Intel</span>, <span class='en'>Cisco</span>, <span class='en'>Realtek</span>). אפשר לדעת איזה חברה יצרה את הרכיב רק לפי ה-<span class='en'>MAC</span>!</p>
           </div>
         </div>
       </div>
@@ -1261,10 +1292,22 @@ footer {
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>CAT 6 / CAT 6A</span><b>עד 10Gbps (מרחק 55m/100m)</b></div>
-              <div class="spec-card"><span>סיב אופטי Single-Mode</span><b>למרחקים ענקיים (עשרות ק"מ)</b></div>
-              <div class="spec-card"><span>סיב אופטי Multi-Mode</span><b>למרחקים קצרים (בתוך דאטה סנטר)</b></div>
-              <div class="spec-card"><span>תקן חיווט</span><b>T568B / T568A</b></div>
+              <div class="spec-card">
+                <span><span class='en'>CAT 6 / CAT 6A</span></span>
+                <b>עד <span class='en'>10Gbps</span> (מרחק <span class='en'>55m/100m</span>)</b>
+              </div>
+              <div class="spec-card">
+                <span>סיב אופטי <span class='en'>Single-Mode</span></span>
+                <b>למרחקים ענקיים (עשרות ק"מ)</b>
+              </div>
+              <div class="spec-card">
+                <span>סיב אופטי <span class='en'>Multi-Mode</span></span>
+                <b>למרחקים קצרים (בתוך דאטה סנטר)</b>
+              </div>
+              <div class="spec-card">
+                <span>תקן חיווט</span>
+                <b><span class='en'>T568B / T568A</span></b>
+              </div>
             </div>
 
             <!-- שתי התמונות זו לצד זו עם אפשרות הגדלה -->
@@ -1305,16 +1348,28 @@ footer {
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
-            <p>הסוויטש הוא המרכזיה החכמה של הרשת המקומית (LAN). כשמגיעה אליו מסגרת (Frame), הוא מסתכל על כתובת ה-<span class='en'>MAC</span> של היעד, בודק בטבלת ה-<span class='en'>MAC</span> הפיזית שלו באיזה פורט היעד נמצא, ושולח את המידע **רק לפורט הזה**! בשונה מהרכזת הישנה <span class='en'>(Hub)</span> שהיתה צועקת לכולם (Broadcast).</p>
+            <p>הסוויטש הוא המרכזיה החכמה של הרשת המקומית (<span class='en'>LAN</span>). כשמגיעה אליו מסגרת (<span class='en'>Frame</span>), הוא מסתכל על כתובת ה-<span class='en'>MAC</span> של היעד, בודק בטבלת ה-<span class='en'>MAC</span> הפיזית שלו באיזה פורט היעד נמצא, ושולח את המידע **רק לפורט הזה**! בשונה מהרכזת הישנה <span class='en'>(Hub)</span> שהיתה צועקת לכולם (<span class='en'>Broadcast</span>).</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>חלוקת רשתות</span><b>VLANs (802.1Q)</b></div>
-              <div class="spec-card"><span>חיבור בין סוויצ'ים</span><b>Trunk Port (802.1Q Tagging)</b></div>
-              <div class="spec-card"><span>אבטחת פורטים</span><b>Port Security (Sticky MAC)</b></div>
-              <div class="spec-card"><span>מניעת לולאות</span><b>STP (Spanning Tree Protocol)</b></div>
+              <div class="spec-card">
+                <span>חלוקת רשתות</span>
+                <b><span class='en'>VLANs (802.1Q)</span></b>
+              </div>
+              <div class="spec-card">
+                <span>חיבור בין סוויצ'ים</span>
+                <b><span class='en'>Trunk Port (802.1Q Tagging)</span></b>
+              </div>
+              <div class="spec-card">
+                <span>אבטחת פורטים</span>
+                <b><span class='en'>Port Security (Sticky MAC)</span></b>
+              </div>
+              <div class="spec-card">
+                <span>מניעת לולאות</span>
+                <b><span class='en'>STP (Spanning Tree Protocol)</span></b>
+              </div>
             </div>
           </div>
 
@@ -1356,10 +1411,22 @@ footer {
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>סוגי ניתוב</span><b>Static Routing / Dynamic (OSPF, RIP)</b></div>
-              <div class="spec-card"><span>תרגום כתובות</span><b>NAT / PAT (Public vs Private IP)</b></div>
-              <div class="spec-card"><span>חלוקת IP</span><b>DHCP Server / Relay</b></div>
-              <div class="spec-card"><span>ניתוב בין VLANs</span><b>Router-on-a-Stick (Sub-Interfaces)</b></div>
+              <div class="spec-card">
+                <span>סוגי ניתוב</span>
+                <b><span class='en'>Static Routing / Dynamic (OSPF, RIP)</span></b>
+              </div>
+              <div class="spec-card">
+                <span>תרגום כתובות</span>
+                <b><span class='en'>NAT / PAT (Public vs Private IP)</span></b>
+              </div>
+              <div class="spec-card">
+                <span>חלוקת <span class='en'>IP</span></span>
+                <b><span class='en'>DHCP Server / Relay</span></b>
+              </div>
+              <div class="spec-card">
+                <span>ניתוב בין <span class='en'>VLANs</span></span>
+                <b><span class='en'>Router-on-a-Stick (Sub-Interfaces)</span></b>
+              </div>
             </div>
           </div>
 
@@ -1384,7 +1451,7 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">רכיבי גישה אלחוטיים (Access Point / Wireless Router)</h3>
+          <h3 class="comp-title">רכיבי גישה אלחוטיים <span class='en'>(Access Point / Wireless Router)</span></h3>
           
           <div class="section-box">
             <h4>אופן פעולה</h4>
@@ -1394,10 +1461,22 @@ footer {
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">נתונים טכניים מרכזיים</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>אבטחה אלחוטית</span><b>WPA2-Personal / WPA3-Enterprise</b></div>
-              <div class="spec-card"><span>תדר 2.4GHz</span><b>טווח ארוך, חודר קירות, איטי יותר</b></div>
-              <div class="spec-card"><span>תדר 5GHz</span><b>מהיר מאוד, טווח קצר, פחות הפרעות</b></div>
-              <div class="spec-card"><span>מנגנון גישה</span><b>CSMA/CA (Collision Avoidance)</b></div>
+              <div class="spec-card">
+                <span>אבטחה אלחוטית</span>
+                <b><span class='en'>WPA2-Personal / WPA3-Enterprise</span></b>
+              </div>
+              <div class="spec-card">
+                <span>תדר <span class='en'>2.4GHz</span></span>
+                <b>טווח ארוך, חודר קירות, איטי יותר</b>
+              </div>
+              <div class="spec-card">
+                <span>תדר <span class='en'>5GHz</span></span>
+                <b>מהיר מאוד, טווח קצר, פחות הפרעות</b>
+              </div>
+              <div class="spec-card">
+                <span>מנגנון גישה</span>
+                <b><span class='en'>CSMA/CA (Collision Avoidance)</span></b>
+              </div>
             </div>
           </div>
 
@@ -1426,10 +1505,10 @@ footer {
                 <p><b>💻 מחשב שולח <span class='en'>(OS)</span>:</b> מבצע <span class='en'>Encapsulation</span>, מוסיף <span class='en'>IP Packet Header</span>.</p>
               </div>
               <div class="section-box" style="border-right-color: var(--violet);">
-                <p><b>🎴 כרטיס רשת <span class='en'>(NIC)</span>:</b> עוטף ב-L2 Frame עם MAC מקור ויעד.</p>
+                <p><b>🎴 כרטיס רשת <span class='en'>(NIC)</span>:</b> עוטף ב-<span class='en'>L2 Frame</span> עם <span class='en'>MAC</span> מקור ויעד.</p>
               </div>
               <div class="section-box" style="border-right-color: var(--amber);">
-                <p><b>🔀 סוויטש (Switch - L2):</b> מעביר לפי MAC בלבד - אינו משנה את המעטפת!</p>
+                <p><b>🔀 סוויטש <span class='en'>(Switch - L2)</span>:</b> מעביר לפי <span class='en'>MAC</span> בלבד - אינו משנה את המעטפת!</p>
               </div>
               <div class="section-box" style="border-right-color: var(--green);">
                 <p><b>🌐 ראוטר <span class='en'>(Router - L3)</span>:</b> מקלף את ה-<span class='en'>L2 Frame</span> הישן בכניסה, ויוצר <span class='en'>L2 Frame</span> חדש ביציאה!</p>

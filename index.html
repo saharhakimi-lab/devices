@@ -258,11 +258,14 @@
         .section-box p { font-size: 0.95rem; color: var(--ink); line-height: 1.7; }
 
         .spec-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px;
         }
         .spec-card {
             background: var(--paper); border: 2px solid var(--line); border-radius: 12px;
-            padding: 12px; text-align: center;
+            padding: 12px; text-align: center; min-width: 0; overflow: hidden;
+        }
+        .spec-card .eng-tag {
+            white-space: normal; max-width: 100%; overflow-wrap: anywhere; text-align: center; margin: 0;
         }
         .spec-card span { font-size: 0.75rem; font-weight: 700; color: var(--muted); display: block; margin-bottom: 4px; }
         .spec-card b { font-size: 0.85rem; font-weight: 800; color: var(--ink); display: block; }
@@ -493,7 +496,7 @@
                         </div>
 
                         <div class="section-box" style="border-right-color: var(--c-amber); background: var(--c-amber-bg);">
-                            <h4 style="color: var(--c-amber);">💡 טיפ מטורלל של האחוואנים</h4>
+                            <h4 style="color: var(--c-amber);">💡 טיפ חשוב</h4>
                             <p>המחשב מריץ טבלת <span class="eng-tag">ARP</span> פנימית! תרשמו ב-<span class="eng-tag">CMD</span> שלכם <code class="mono">arp -a</code> ותראו איך המחשב זוכר איזה כתובת <span class="eng-tag">IP</span> שייכת לאיזה כתובת <span class="eng-tag">MAC</span> פיזית ברשת המקומית שלכם!</p>
                         </div>
                     </div>
@@ -545,7 +548,7 @@
                         </div>
 
                         <div class="section-box" style="border-right-color: var(--c-amber); background: var(--c-amber-bg);">
-                            <h4 style="color: var(--c-amber);">💡 טיפ מטורלל של האחוואנים</h4>
+                            <h4 style="color: var(--c-amber);">💡 טיפ חשוב</h4>
                             <p>3 הבייטים הראשונים בכתובת ה-<span class="eng-tag">MAC</span> נקראים <span class="eng-tag">OUI</span>! הם מזהים מאיזה יצרן הכרטיס <span class="eng-tag">Intel</span>, <span class="eng-tag">Cisco</span>, <span class="eng-tag">Realtek</span>. אפשר לדעת איזה חברה יצרה את הרכיב רק לפי ה-<span class="eng-tag">MAC</span>!</p>
                         </div>
                     </div>
@@ -608,7 +611,7 @@
                         </div>
 
                         <div class="section-box" style="border-right-color: var(--c-amber); background: var(--c-amber-bg);">
-                            <h4 style="color: var(--c-amber);">💡 טיפ מטורלל של האחוואנים</h4>
+                            <h4 style="color: var(--c-amber);">💡 טיפ חשוב</h4>
                             <p>זוכרים כבל מוצלב <span class="eng-tag">Crossover</span> וכבל ישר <span class="eng-tag">Straight-Through</span>? היום לרוב הסוויצ'ים יש מנגנון מטורף שנקרא <span class="eng-tag">Auto-MDIX</span> שמשנה את הפורט אוטומטית גם אם טעיתם בסוג הכבל!</p>
                         </div>
                     </div>
@@ -718,7 +721,7 @@
                         </div>
 
                         <div class="section-box" style="border-right-color: var(--c-amber); background: var(--c-amber-bg);">
-                            <h4 style="color: var(--c-amber);">💡 טיפ מטורלל של האחוואנים</h4>
+                            <h4 style="color: var(--c-amber);">💡 טיפ חשוב</h4>
                             <p>ראוטר עוצר הודעות <span class="eng-tag">Broadcast</span>! שום הודעת הצפה מ-<span class="eng-tag">VLAN</span> אחד לא תעבור דרך הראוטר ל-<span class="eng-tag">VLAN</span> אחר אלא אם הגדרתם ניתוב במפורש. הוא השומר של גבולות הרשת!</p>
                         </div>
                     </div>
@@ -770,7 +773,7 @@
                         </div>
 
                         <div class="section-box" style="border-right-color: var(--c-amber); background: var(--c-amber-bg);">
-                            <h4 style="color: var(--c-amber);">💡 טיפ מטורלל של האחוואנים</h4>
+                            <h4 style="color: var(--c-amber);">💡 טיפ חשוב</h4>
                             <p>ברשת קווית משתמשים ב-<span class="eng-tag">CSMA/CD</span> זיהוי התנגשויות, אבל באוויר אי אפשר לזהות התנגשות תוך כדי שידור, ולכן באלחוט משתמשים ב-<span class="eng-tag">CSMA/CA</span> מניעת התנגשויות מראש!</p>
                         </div>
                     </div>
